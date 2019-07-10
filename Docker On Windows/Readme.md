@@ -1,3 +1,5 @@
+![](https://github.com/Muppity/Presentations-Material/blob/master/Docker%20On%20Windows/docker-windows-server-1709.png)
+
 ### SQL Server containers with Docker on Windows
 
 
