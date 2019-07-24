@@ -8,4 +8,4 @@ The content includes Slides, code scripts, or backups used inthe presentation.
 (if there is any difference on versions feel free to reach me at twitter direct message)
 
 - @MuppetRocks or @CarlosLopezDBA
-- blog page complimentary info: TheDBAMuppity.blogspot.com
+- blog page complimentary info: [TheDBAMuppity.blogspot.com]
