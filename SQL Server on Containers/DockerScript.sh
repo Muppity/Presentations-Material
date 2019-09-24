@@ -20,11 +20,11 @@ ls /opt/
 
 
 #Crear Container
-docker run -d -p 1433:1433 --name lesql --privileged -it --volume /Users/carloslopez/Desktop/Reports:/media\
+docker run -d -p 1433:1433 --name lesql --privileged -it --volume /Users/carloslopez/Desktop/Reports:/mnt/share\
 -e "SA_PASSWORD=Clave01*" -e "ACCEPT_EULA=Y" 314918ddaedf
 #Create Container with mount
 docker run -d -p 1433:1433 --name lesql --privileged -it 
- --mount type=bind,src=/Users/carloslopez/Desktop/Reports,dst=/host_mnt/c -e "SA_PASSWORD=Clave01*"\
+ --mount type=bind,src=/Users/carloslopez/Desktop/Reports,dst=/mnt/share -e "SA_PASSWORD=Clave01*"\
  -e "ACCEPT_EULA=Y" 314918ddaedf
 #Create container without mount --only instance
 docker run -d -p 1433:1433 --name lesql --privileged -it   -e "SA_PASSWORD=Clave01*"\
@@ -53,7 +53,7 @@ docker exec -it lesql  /opt/mssql-tools/bin/sqlcmd  -Usa -PClave01* -Q "select @
 
 #5. Conectarse a Server y SSMS Ejecutar queries.
 docker exec -it lesql  /opt/mssql-tools/bin/sqlcmd  -Usa -PClave01* -i \
-"C:\Users\A462175\Desktop\Github-Muppity\SQLQuery_1.sql"
+"/Users/carloslopez/GitHub/Presentations-Material/SQL\ Server\ on\ Containers/SQLQuery_1.sql"
 
 #5.3 mostrar ps y mem docker starts y en la db usando memory_status
 docker stats
