@@ -1,4 +1,4 @@
-![](DBA_Muppity_new2.png)
+![](BannerMuppity2_1.jpg)
 ### Conference Materials
 
 This Repository is dedicated to place all materials given on past presentations:
