@@ -20,10 +20,11 @@ ls /opt/
 
 
 #Crear Container
-docker run -d -p 1433:1433 --name lesql --privileged -it --volume /Users/carloslopez/Desktop/Reports:/mnt/share\
+docker run -d -p 1433:1433 --name lesql --privileged -it \ 
+--volume /Users/carloslopez/Desktop/Reports:/mnt/share\
 -e "SA_PASSWORD=Clave01*" -e "ACCEPT_EULA=Y" 314918ddaedf
 #Create Container with mount
-docker run -d -p 1433:1433 --name lesql --privileged -it 
+docker run -d -p 1433:1433 --name lesql --privileged -it \
  --mount type=bind,src=/Users/carloslopez/Desktop/Reports,dst=/mnt/share -e "SA_PASSWORD=Clave01*"\
  -e "ACCEPT_EULA=Y" 314918ddaedf
 #Create container without mount --only instance
