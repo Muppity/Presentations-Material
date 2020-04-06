@@ -52,7 +52,7 @@ spec:
 
       - name: mssql
 
-        image: mcr.microsoft.com/mssql/server:2019-CTP3.2-ubuntu
+        image: mcr.microsoft.com/mssql/server:2017-latest
         #microsoft/mssql-server-linux
 
         ports:
