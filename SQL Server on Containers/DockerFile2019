@@ -1,0 +1,4 @@
+#### DockerFile for installing SQL 2019
+docker build
+FROM MSSQL2019
+COPY
