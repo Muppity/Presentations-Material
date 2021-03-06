@@ -1,0 +1,24 @@
+az login
+
+az group list
+az sql server list
+$rgn=cr_server_01
+
+
+AZ sql db list 
+
+rg="cr_server_01"
+
+az sql db create -g cr_server_01 -s serverless-exm -n GX_44 -e GeneralPurpose `
+-f Gen5 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
+--service-objective Basic
+
+az sql db create -g cr_server_01 -s serverless-exm -n GX_04 -e GeneralPurpose `
+-f Gen4 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
+--service-objective Basic
+
+az sql db delete -s serverless-exm -n GX04 -g cr_server_01
+
+
+ az sql db create --help
+

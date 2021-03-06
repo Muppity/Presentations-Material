@@ -1,3 +1,23 @@
-RESOURCE_GROUP_NAME=rgAkron
 
+#Create the Resource Group
+RESOURCE_GROUP_NAME=rgAkron
 az group create --name $RESOURCE_GROUP_NAME --location eastus
+
+#Create a Containter Registry
+az acr create --resource-group rgAkron \
+  --name crakron --sku Basic
+
+az login
+az resource list
+az acr login --name crakron
+
+az container create --resource-group rgAkron  --name 'brlsaz01' \
+--image mcr.microsoft.com/mssql/server:2017-latest \
+--environment-variables ACCEPT_EULA=Y MSSQL_SA_PASSWORD="Clave01*$+" 
+  
+az container delete --name brlsaz01 --resource-group rgAkron
+
+
+az container list
+
+az acr list   --output table
