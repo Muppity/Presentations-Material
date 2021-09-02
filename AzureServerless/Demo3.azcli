@@ -5,20 +5,38 @@ az sql server list
 $rgn=cr_server_01
 
 
-AZ sql db list 
+AZ group list --query "[?location=='eastus']"
 
-rg="cr_server_01"
+AZ group list --query "[?name=='cr_server_01']"
 
-az sql db create -g cr_server_01 -s serverless-exm -n GX_44 -e GeneralPurpose `
--f Gen5 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
---service-objective Basic
 
-az sql db create -g cr_server_01 -s serverless-exm -n GX_04 -e GeneralPurpose `
--f Gen4 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
+az group create --location eastus --resource-group cr_server_01
+
+
+az sql server create --help
+
+az sql server create -l eastus -g cr_server_01 -n SOCMecha -u clopez  -p "Clave01*"
+
+
+az sql server list --query "[?resourceGroup=='cr_server_01']"
+az sql server show --name SOCMEcha --resource-group cr_server_01
+az sql server list-usages --resource-group cr_server_01 --name cr_server_01
+
+az sql db list-deleted --resource-group cr_server_01 --server SOCMecha --name GX_44
+
+
+az sql db create -g cr_server_01 -s SOCMecha -n GX_44 -e GeneralPurpose `
+--family Gen5 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
+--service-objective S0  --backup-storage-redundancy Local --collation SQL_Latin1_General_CP1_CI_AS
+
+
+az sql db list-editions --location eastus --service-objective Basic --show-details max-size
+
+az sql db create -g cr_server_01 -s SOCMecha -n GX_04 -e GeneralPurpose `
+--family Gen5 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
 --service-objective Basic
 
 az sql db delete -s serverless-exm -n GX04 -g cr_server_01
 
 
- az sql db create --help
 
