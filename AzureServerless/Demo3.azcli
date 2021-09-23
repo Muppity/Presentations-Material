@@ -10,33 +10,41 @@ AZ group list --query "[?location=='eastus']"
 AZ group list --query "[?name=='cr_server_01']"
 
 
-az group create --location eastus --resource-group cr_server_01
+az group create --location eastus --resource-group cr_server_02
 
+az group delete --resource-group cr_server_02
 
-az sql server create --help
+az sql server create -l eastus -g cr_server_01 -n SOCMecha45 -u clopez  -p "Clave01*"
 
-az sql server create -l eastus -g cr_server_01 -n SOCMecha -u clopez  -p "Clave01*"
-
+az sql server delete -g cr_server_01 -n SOCMecha44
 
 az sql server list --query "[?resourceGroup=='cr_server_01']"
-az sql server show --name SOCMEcha --resource-group cr_server_01
-az sql server list-usages --resource-group cr_server_01 --name cr_server_01
-
-az sql db list-deleted --resource-group cr_server_01 --server SOCMecha --name GX_44
+az sql server show --name SOCMEcha --resource-group SOCMecha44
+az sql server list-usages --resource-group cr_server_01 --name SOCMecha44
 
 
-az sql db create -g cr_server_01 -s SOCMecha -n GX_44 -e GeneralPurpose `
+az sql db copy -g CP_testing -s sv-cp-testing -n CP_TestingDB --dest-name GX_60 --service-objective Basic
+
+
+az sql db delete -g CP_testing -s sv-cp-testing -n GX_60
+
+az sql db delete -g cr_server_01 -s SOCMecha44 -n GX_04
+
+az sql db list-deleted --resource-group cr_server_01 --server SOCMecha 
+
+
+az sql db create -g cr_server_01 -s SOCMecha44 -n GX_06 -e GeneralPurpose `
 --family Gen5 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
---service-objective S0  --backup-storage-redundancy Local --collation SQL_Latin1_General_CP1_CI_AS
+--service-objective Basic  --backup-storage-redundancy Local --collation SQL_Latin1_General_CP1_CI_AS
 
 
 az sql db list-editions --location eastus --service-objective Basic --show-details max-size
 
-az sql db create -g cr_server_01 -s SOCMecha -n GX_04 -e GeneralPurpose `
+az sql db create -g cr_server_01 -s SOCMecha44 -n GX_30 -e GeneralPurpose `
 --family Gen5 --min-capacity 0.5 -c 1 --compute-model Serverless --auto-pause-delay 60 `
 --service-objective Basic
 
-az sql db delete -s serverless-exm -n GX04 -g cr_server_01
+az sql db delete -s SOCMecha44 -n GX_09 -g cr_server_01
 
 
 

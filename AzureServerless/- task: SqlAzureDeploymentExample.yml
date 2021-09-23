@@ -1,0 +1,9 @@
+- task: SqlAzureDeploymentExample
+  displayName: Execute Azure SQL Deplyment
+  inputs:
+    azureSubscription: 'My Azure Subscription'
+    ServerName: 'SOCMecha'
+    DatabaseName: 'GX_44'
+    SqlUsername: 'clopez'
+    SqlPassword: 'MyPass'
+    DacpacFile: '/home/location/DacpacFIle>'
