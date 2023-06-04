@@ -28,7 +28,7 @@ As breifly explained at the begining we are going to start by connecting
 
 Once connected to your Azure account and into the Azure portal, search for the SQL Databases
 
-![SQL Servers](/images/sqlservers.png)
+![SQL Servers](./images/sqlservers.png)
 
 Look up for your server from the list, select it and find your database
 
